@@ -1,0 +1,88 @@
+import { SideNote, useTime } from './Components';
+import { EarnProgress } from './Experiments';
+
+# Zeit ist Geld
+
+<p className="subtitle">Ein interaktives Essay über den (monetären) Wert von Zeit</p>
+
+<section>
+  Dieses Essay zu lesen wird Zeit "kosten". Bisher {
+  useTime() < 60
+    ? (<> zwar nur {useTime().toFixed(0)} Sekunden, das wird sich jedoch noch ändern.</>)
+    : (<> {useTime().toFixed(0)} Sekunden.</>)
+}
+
+Doch was heißt kosten in diesem Kontext? Kann Mensch Zeit etwa ausgeben, kaufen,
+verkaufen, handeln? Wenn ja, was ist der Wert von Zeit? Ist alle Zeit gleich viel Wert?
+Wer bestimmt den Wert von Zeit?
+
+Genau um diese Fragen wird es in diesem Text gehen.
+
+</section>
+
+<section>
+## Zeit verkaufen
+
+Viele menschen in Deutschland verbringen circa die hälfte ihres wachen Tages damit, ihre
+Zeit zu verkaufen. Normalerweise nennen wir diese Tätigkeit jedoch nicht "Zeit Verkaufen",
+sondern "Lohnarbeit".
+
+_Acht Stunden arbeiten, acht Stunden schlafen und acht Stunden Freizeit und Erholung_ <SideNote> Robert Owen (1771–1858) als Forderung zur einführung des Acht Stunden Arbeitstages </SideNote>
+
+Beim Handel mit Dienstleistungen ist es relativ offensichtlich, dass wir Zeit Kaufen bzw. Verkaufen.
+Sei es beim Frisör oder beim Psychoterapeut: Es gibt einen direkten tausch von einer bestimmten klar
+definierten Zeiteinheit für einen bestimmten, klar definierten Geldbetrag. Haare Schneiden 12€. Therapiestunde
+120€.
+
+Bei anderen Dingen ist nicht auf den ersten Blick offensichtlich, das mit Zeit gehandelt
+wird. Pizza 8€.
+
+Hier steht zwar auf der einen Seite ein Geldbetrag, auf der anderen Seite
+jedoch ein reales existentes in diesem Fall essbares Produkt. Die Pizza könnten wir jetzt
+jedoch gedanklich weiter zerlegen: In die Arbeitszeit, die die Pizzabäcker:in gebraucht
+hat, um sie zu produzieren und die Ausgangsprodukte, z.B. das Mehl, die Hefe, die Tomaten,
+den Käse, ...
+
+Diese Ausgangsprodukte können wir jedoch auch wieder zerlegen in die Arbeitszeit, die es gebraucht
+hat, sie herzustellen und Ausgangsprodukte (z.B. Weizen für die Mehlherstellung oder dünger und
+Wasser für das Ziehen von Tomaten). <SideNote>
+An dieser Stelle muss angemerkt werden, dass nicht _alle_ Wertschöpfung _allein_ auf das
+aufwenden und Verkaufen von zeit zurückgeführt werden kann. So wird z.B. für das züchten von
+Tomaten zusätzlich Fläche benötigt. </SideNote>
+
+</section>
+
+<section>
+## Der wert der Zeit
+
+Was an Preisen für Dienstleistungen deutlich wird, ist, dass nicht alle Zeit gleich viel wert ist.
+
+_Haare schneiden 12€. Therapiestunde 120€._
+
+Oder andersherum betrachtet brauchen nicht alle Menschen gleich viel Zeit um eine bestimmte Menge an Geld zu verdienen.
+Machen wir hierzu ein Gedankenexperiment: Wie lange dauert es für verschiedene Menschen, einen Euro zu verdienen?
+
+{' '}
+
+<EarnProgress
+  wages={{
+    'Mindestlohn in Deutschland 2020': 9.35,
+    'Durchschnittlicher Stundenlohn in Deutschland 2020': 19.38, // https://de.statista.com/statistik/daten/studie/17494/umfrage/deutschland-arbeitsverguetung-stundenlohn/
+    Psychotherapeut: 120,
+    // todo: research different wages
+  }}
+  target={1}
+/>
+
+Wir sehen also, das es je nach einkommen unterschiedlich lange dauert einen Geldbetrag zu "erarbeiten".
+
+</section>
+
+<section>
+## Zeit "haben"
+
+Was passiert also, wenn mensch viel geld pro stunde verdient, und mit diesem Geld die Zeit einer anderen Person
+zu einem günstigeren Preis einkauft? Mensch hat mehr Zeit als vorher. D.h.
+Diese eine person hat mehr zeit "verbraucht" mehr zeit als sie eigentlich natürlich durch ihr leben hat.
+
+</section>

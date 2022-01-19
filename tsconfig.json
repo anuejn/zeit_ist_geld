@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "esNext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "noEmit": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "paths": {
+      "*": ["node_modules/*"]
+    },
+    "target": "ES6",
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+      "es2015.generator"
+    ]
+  },
+  "include": [
+    "main_process/**/*",
+    "src/**/*",
+    "src/*.d.ts",
+    "src/types/*.d.ts"
+  ],
+  "exclude": ["**/node_modules", "**/.*/"],
+}
