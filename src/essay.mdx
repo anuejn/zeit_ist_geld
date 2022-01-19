@@ -7,82 +7,117 @@ import { EarnProgress } from './Experiments';
 
 <section>
   Dieses Essay zu lesen wird Zeit "kosten". Bisher {
-  useTime() < 60
-    ? (<> zwar nur {useTime().toFixed(0)} Sekunden, das wird sich jedoch noch ändern.</>)
-    : (<> {useTime().toFixed(0)} Sekunden.</>)
-}
+    useTime() < 60
+      ? (<> zwar nur {useTime().toFixed(0)} Sekunden, das wird sich jedoch noch ändern.</>)
+      : (<> {useTime().toFixed(0)} Sekunden.</>)
+  }
 
-Doch was heißt kosten in diesem Kontext? Kann Mensch Zeit etwa ausgeben, kaufen,
-verkaufen, handeln? Wenn ja, was ist der Wert von Zeit? Ist alle Zeit gleich viel Wert?
-Wer bestimmt den Wert von Zeit?
+  Doch was heißt kosten in diesem Kontext? Kann Mensch Zeit etwa ausgeben, kaufen,
+  verkaufen, handeln? Wenn ja, was ist der Wert von Zeit? Ist alle Zeit gleich viel Wert?
+  Wer bestimmt den Wert von Zeit?
 
-Genau um diese Fragen wird es in diesem Text gehen.
-
-</section>
-
-<section>
-## Zeit verkaufen
-
-Viele menschen in Deutschland verbringen circa die hälfte ihres wachen Tages damit, ihre
-Zeit zu verkaufen. Normalerweise nennen wir diese Tätigkeit jedoch nicht "Zeit Verkaufen",
-sondern "Lohnarbeit".
-
-_Acht Stunden arbeiten, acht Stunden schlafen und acht Stunden Freizeit und Erholung_ <SideNote> Robert Owen (1771–1858) als Forderung zur einführung des Acht Stunden Arbeitstages </SideNote>
-
-Beim Handel mit Dienstleistungen ist es relativ offensichtlich, dass wir Zeit Kaufen bzw. Verkaufen.
-Sei es beim Frisör oder beim Psychoterapeut: Es gibt einen direkten tausch von einer bestimmten klar
-definierten Zeiteinheit für einen bestimmten, klar definierten Geldbetrag. Haare Schneiden 12€. Therapiestunde
-120€.
-
-Bei anderen Dingen ist nicht auf den ersten Blick offensichtlich, das mit Zeit gehandelt
-wird. Pizza 8€.
-
-Hier steht zwar auf der einen Seite ein Geldbetrag, auf der anderen Seite
-jedoch ein reales existentes in diesem Fall essbares Produkt. Die Pizza könnten wir jetzt
-jedoch gedanklich weiter zerlegen: In die Arbeitszeit, die die Pizzabäcker:in gebraucht
-hat, um sie zu produzieren und die Ausgangsprodukte, z.B. das Mehl, die Hefe, die Tomaten,
-den Käse, ...
-
-Diese Ausgangsprodukte können wir jedoch auch wieder zerlegen in die Arbeitszeit, die es gebraucht
-hat, sie herzustellen und Ausgangsprodukte (z.B. Weizen für die Mehlherstellung oder dünger und
-Wasser für das Ziehen von Tomaten). <SideNote>
-An dieser Stelle muss angemerkt werden, dass nicht _alle_ Wertschöpfung _allein_ auf das
-aufwenden und Verkaufen von zeit zurückgeführt werden kann. So wird z.B. für das züchten von
-Tomaten zusätzlich Fläche benötigt. </SideNote>
+  Genau um diese Fragen wird es in diesem Text gehen.
 
 </section>
 
 <section>
-## Der wert der Zeit
+  ## Zeit verkaufen
 
-Was an Preisen für Dienstleistungen deutlich wird, ist, dass nicht alle Zeit gleich viel wert ist.
+  Viele menschen in Deutschland verbringen circa die hälfte ihres wachen Tages damit, ihre
+  Zeit zu verkaufen.
 
-_Haare schneiden 12€. Therapiestunde 120€._
+  _Acht Stunden arbeiten, acht Stunden schlafen und acht Stunden Freizeit und Erholung_ <SideNote> Robert Owen
+  (1771–1858) als Forderung zur einführung des Acht Stunden Arbeitstages </SideNote>
 
-Oder andersherum betrachtet brauchen nicht alle Menschen gleich viel Zeit um eine bestimmte Menge an Geld zu verdienen.
-Machen wir hierzu ein Gedankenexperiment: Wie lange dauert es für verschiedene Menschen, einen Euro zu verdienen?
+  Normalerweise nennen wir diese Tätigkeit jedoch nicht "Zeit Verkaufen", sondern "Lohnarbeit".
 
-{' '}
 
-<EarnProgress
-  wages={{
-    'Mindestlohn in Deutschland 2020': 9.35,
-    'Durchschnittlicher Stundenlohn in Deutschland 2020': 19.38, // https://de.statista.com/statistik/daten/studie/17494/umfrage/deutschland-arbeitsverguetung-stundenlohn/
-    Psychotherapeut: 120,
-    // todo: research different wages
-  }}
-  target={1}
-/>
+  Beim Handel mit Dienstleistungen ist es relativ offensichtlich, dass wir Zeit Kaufen bzw. Verkaufen.
+  Sei es beim Frisör oder beim Psychoterapeut: Es gibt einen direkten tausch von einer bestimmten klar
+  definierten Zeiteinheit für einen bestimmten, klar definierten Geldbetrag. Haare Schneiden 12€. Therapiestunde
+  120€.
 
-Wir sehen also, das es je nach einkommen unterschiedlich lange dauert einen Geldbetrag zu "erarbeiten".
+  Bei anderen Dingen ist nicht auf den ersten Blick offensichtlich, das mit Zeit gehandelt
+  wird. Pizza 8€.
+
+  Hier steht zwar auf der einen Seite ein Geldbetrag, auf der anderen Seite
+  jedoch ein reales existentes in diesem Fall essbares Produkt. Die Pizza könnten wir jetzt
+  jedoch gedanklich weiter zerlegen: In die Arbeitszeit, die die Pizzabäcker:in gebraucht
+  hat, um sie zu produzieren und die Ausgangsprodukte, z.B. das Mehl, die Hefe, die Tomaten,
+  den Käse, ...
+
+  Diese Ausgangsprodukte können wir jedoch auch wieder zerlegen in die Arbeitszeit, die es gebraucht
+  hat, sie herzustellen und Ausgangsprodukte (z.B. Weizen für die Mehlherstellung oder dünger und
+  Wasser für das Ziehen von Tomaten). <SideNote>
+  An dieser Stelle muss angemerkt werden, dass nicht _alle_ Wertschöpfung _allein_ auf das
+  aufwenden und Verkaufen von zeit zurückgeführt werden kann. So wird z.B. für das züchten von
+  Tomaten zusätzlich Fläche benötigt. </SideNote>
 
 </section>
 
 <section>
-## Zeit "haben"
+  ## Der wert der Zeit
 
-Was passiert also, wenn mensch viel geld pro stunde verdient, und mit diesem Geld die Zeit einer anderen Person
-zu einem günstigeren Preis einkauft? Mensch hat mehr Zeit als vorher. D.h.
-Diese eine person hat mehr zeit "verbraucht" mehr zeit als sie eigentlich natürlich durch ihr leben hat.
+  Was an Preisen für Dienstleistungen deutlich wird, ist, dass nicht alle Zeit gleich viel wert ist.
 
+  _Haare schneiden 12€. Therapiestunde 120€._
+
+  Oft ist uns die unterschiedliche Vergütung unterschiedlicher Tätigkeiten zwar prinzipiell klar, jedoch trotzdem schlecht greifbar.
+  Dies hat verschiedene Gründe. Gehalt wird oft in schlecht greifbaren einheiten angegeben.
+
+  *58.800 € pro Jahr.* <SideNote>https://de.jobted.com/gehalt/rechtsanwalt</SideNote>
+
+  Diese Zahl verwendet so unglaublich große Einheiten für Zeit und
+  Geld, dass es schwer fällt, sich darunter etwas vorzustellen. Was könnte ich alles in einem Jahr machen? Ein Stelzenhaus bauen ....
+  Was könnte ich alles mit 58.80€ machen? xxx packungen Gummibärchen kaufen, xxx fahrradreifen.
+
+  Was die Sache noch schwieriger macht, ist die tatsache, das nicht gerne über gehälter geredet wird.
+  *Über Geld redet man nicht.*
+
+  Durch diese Strukturen kann ungleiche Bezahlung aufrechterhalten werden, ohne das sie stark auffält.
+
+  Greifbarer ist es, sich Gehalt auf kleineren Skalen zu verdeutlichen. Wie lange dauert es 1€ zu verdienen?
+  Mit wie viel Geld wird eine stunde Arbeit vergütet?
+
+  Machen wir hierzu ein Gedankenexperiment: Wie lange dauert es für verschiedene Menschen, einen Euro zu verdienen?
+  <EarnProgress
+    wages={{
+      'Mindestlohn in Deutschland 2020': 9.35,
+      'Durchschnittlicher Stundenlohn in Deutschland 2020': 19.38, // https://de.statista.com/statistik/daten/studie/17494/umfrage/deutschland-arbeitsverguetung-stundenlohn/
+      Psychotherapeut: 120,
+      // todo: research different wages
+    }}
+    target={1}
+  />
+
+  Wir sehen also, das es je nach einkommen unterschiedlich lange dauert, einen Geldbetrag zu "erarbeiten".
+
+</section>
+
+<section>
+  ## Zeit "haben"
+
+  Was passiert also, wenn mensch viel Geld pro Stunde verdient, und mit diesem Geld die Zeit einer anderen Person
+  zu einem günstigeren Preis einkauft? Mensch hat mehr Zeit als vorher.
+  Hierdurch wird es reichen Menschen ermöglicht, mehr Zeit zu "verbrauchen", als sie lebenszeit haben.
+  Auf der anderen Seite haben die Person, die ihre Zeit biillig verkaufen müssen muss weniger Zeit.
+
+  Um dies zu Veranschaulichen können wir folgendes Gedankenexperiment durchführen:
+  Würdest du mit einem Stundenlohn von xxx€ die Zeit von Elon Musk kaufen wollen, (z.B. damit er dir die Haare schneidet)
+  müsstest du pro Minute, die du von ihm einkafst xxx Stunden Arbeiten. Kaufst du Zeit in Form eines T-shirts, welches in
+  Bangladesh hergestellt wurde, musst du nur xxx Sekunden Arbeiten, um eine Minute Arbeitszeit zu kaufen.<SideNote>An dieser Stelle
+  werden alle Zwischenhändler, die Im Falle eines T-Shirts das meiste Geld verdienen, ignoriert</SideNote>
+
+  Veranschaulichen kann man sich diesen Zusammenhang mithilfe der unten stehenden Uhren. Wird eine Uhr angeklickt, läuft diese mit der
+  normalen Geschwindigkeit. Die zur Uhr zugehörige Person verkauft ihre Zeit. Die anderen Uhren bewegen sich jetzt so Viel
+  langsamer / schneller, dass sie mit dem Geld, was sie in der angegebenen Zeit verdienen die Zeit der Person dernen Uhr
+  sich normal-schnell bewegt, kaufen könnten.
+
+  TODO: experiment mit unterschiedlich shnell laufenden uhren. "Referenzzeit.
+</section>
+
+<section>
+  ## TODO
+
+  Das Lesen dieses Textes hat dich ca. xxx€ gekostet.
 </section>
