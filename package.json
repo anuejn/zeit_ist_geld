@@ -9,6 +9,7 @@
   ],
   "scripts": {
     "start": "vite",
+    "build": "vite build --base=./",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,mdx}'"
   },
   "dependencies": {

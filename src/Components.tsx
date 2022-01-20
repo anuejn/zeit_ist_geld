@@ -15,7 +15,7 @@ export function useTime(): number {
     return () => {
       running = false;
     };
-  });
+  }, []);
   return time;
 }
 
@@ -29,10 +29,9 @@ export function SideNote({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {' '}
       <label htmlFor={id} className={'margin-toggle sidenote-number'} />
       <input type="checkbox" id={id} className={'margin-toggle'} />
-      <span className="sidenote"> {children} </span>{' '}
+      <span className="sidenote">{children}</span>
     </>
   );
 }
