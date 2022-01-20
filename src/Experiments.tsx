@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { ExperimentWrapper, useTime } from "./Components";
 import { Line } from "rc-progress";
+import Clock from 'react-clock';
 
 export const wages: Record<string, number> = {
   "Näher:innen in Bangladesch": 0.29,
   "Mindestlohn in Deutschland": 9.82,
-  "durchschnittliche Einkommen von Arbeitnehmer*innen** in Deutschland": 18.15,
-  "Durchschnittsgehalt für Professoren in Deutschland": 38.69,
+  "durchschnittliche Einkommen von Arbeitnehmer:innen in Deutschland": 18.15,
+  "Durchschnittsgehalt für Professor:innen in Deutschland": 38.69,
   "Elon Musk": 1600000,
 };
 
@@ -16,33 +17,6 @@ export function formatNumber(x: number, count = 0) {
     return (0).toFixed(count)
   }
   return x.toFixed(Math.max(count, required))
-}
-
-export function EarnProgress({ wage, target = 1 }: {
-  wage: number;
-  target?: number;
-}): JSX.Element {
-  const [startTime, setStartTime] = useState<null | number>(null);
-  const time = useTime();
-
-  return (
-    <ExperimentWrapper>
-      {Object.entries({ ...wages, "Du": wage }).map(([name, wagePerHour]) => {
-        const elapsed = startTime ? time - startTime : 0;
-        const wagePerSecond = wagePerHour / 60 / 60;
-        let money = Math.min(wagePerSecond * elapsed, target);
-        let elapsedPerson = money == target ? target / wagePerSecond : elapsed
-        return (
-          <div key={name}>
-            {name} ({formatNumber(money, 2)} € in {formatNumber(elapsedPerson)}s)
-            <Line percent={(money / target) * 100} />
-          </div>
-        );
-      })}
-
-      <button onClick={() => setStartTime(time)}>Start</button>
-    </ExperimentWrapper>
-  );
 }
 
 
@@ -77,9 +51,58 @@ export function WageEntry({ wage, setWage }: { wage: number, setWage: (wage: num
           Entspricht <b>{wage.toFixed(2)} €/h</b>
         </p>
       </>}
-
-
-
     </ExperimentWrapper>
   );
+}
+
+
+export function EarnProgress({ wage, target = 1 }: {
+  wage: number;
+  target?: number;
+}): JSX.Element {
+  const [startTime, setStartTime] = useState<null | number>(null);
+  const time = useTime();
+  const allWages = { ...wages, "Du": wage };
+
+  return (
+    <ExperimentWrapper>
+      {Object.entries(allWages).map(([name, wagePerHour]) => {
+        const elapsed = startTime ? time - startTime : 0;
+        const wagePerSecond = wagePerHour / 60 / 60;
+        let money = Math.min(wagePerSecond * elapsed, target);
+        let elapsedPerson = money == target ? target / wagePerSecond : elapsed
+        return (
+          <div key={name}>
+            {name} ({formatNumber(money, 2)} € in {formatNumber(elapsedPerson)}s)
+            <Line percent={(money / target) * 100} />
+          </div>
+        );
+      })}
+
+      <button onClick={() => setStartTime(time)}>Start</button>
+    </ExperimentWrapper>
+  );
+}
+
+export function SpeedyClocks({wage}: {wage: number}) {
+  const allWages = { ...wages, "Du": wage };
+  const [startTime, setStartTime] = useState<null | number>(null);
+  const [multiplier, setMultiplier] = useState(1);
+  const time = useTime();
+
+  return (
+    <ExperimentWrapper>
+      {Object.entries(allWages).map(([name, wagePerHour]) => {
+        const elapsed = startTime ? time - startTime : 0;
+        
+        return (
+          <div key={name}>
+            <Clock value={new Date(elapsed)} />
+          </div>
+        );
+      })}
+
+      <button onClick={() => setStartTime(time)}>Start</button>
+    </ExperimentWrapper>
+  );  
 }
