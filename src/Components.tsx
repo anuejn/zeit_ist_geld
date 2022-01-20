@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useMemo, useState } from 'react';
+import { HTMLProps, useEffect, useMemo, useState } from "react";
 
 const startTime = Date.now();
 export function useTime(): number {
@@ -8,7 +8,7 @@ export function useTime(): number {
     let running = true;
     const callback = () => {
       setTime((Date.now() - startTime) / 1000);
-      if (running) setTimeout(callback, 100);
+      if (running) requestAnimationFrame(callback);
     };
     callback();
 
@@ -36,13 +36,14 @@ export function SideNote({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function ExperimentWrapper({ children }: { children: React.ReactNode }) {
+export function ExperimentWrapper({ children, style = {} }: { children: React.ReactNode, style?: React.CSSProperties }) {
   return (
     <figure
       style={{
         borderTop: '1px solid darkgray',
         borderBottom: '1px solid darkgray',
         padding: '10px 0',
+        ...style,
       }}
     >
       {children}

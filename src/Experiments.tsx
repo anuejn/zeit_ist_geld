@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { ExperimentWrapper, useTime } from "./Components";
 import { Line } from "rc-progress";
 import Clock from 'react-clock';
+import 'react-clock/dist/Clock.css';
 
 export const wages: Record<string, number> = {
   "Näher:innen in Bangladesch": 0.29,
   "Mindestlohn in Deutschland": 9.82,
-  "durchschnittliche Einkommen von Arbeitnehmer:innen in Deutschland": 18.15,
+  "Durchschnittsgehalt von Arbeitnehmer:innen in Deutschland": 18.15,
   "Durchschnittsgehalt für Professor:innen in Deutschland": 38.69,
   "Elon Musk": 1600000,
 };
@@ -28,7 +29,7 @@ export function WageEntry({ wage, setWage }: { wage: number, setWage: (wage: num
     <ExperimentWrapper>
       <p>
         <label htmlFor="wage">Dein Lohn: </label><br/>
-        <input style={{width: 100}} id="wage" type="number" value={(wage * timeBase).toFixed(2)} onChange={(e) => setWage((parseFloat(e.target.value) || 0) / timeBase)}/>€
+        <input style={{width: 100}} id="wage" type="number" value={(wage * timeBase).toFixed(2)} onChange={(e) => setWage((parseFloat(e.target.value) || 0) / timeBase)}/> €
 
         <input type="radio" id="hour" name="timeBase" onClick={() => setTimeBase(1)} checked={timeBase == 1}/>
         <label htmlFor="hour">Pro Stunde</label>
@@ -91,18 +92,28 @@ export function SpeedyClocks({wage}: {wage: number}) {
   const time = useTime();
 
   return (
-    <ExperimentWrapper>
+    <ExperimentWrapper style={{ display: 'flex', flexWrap: 'wrap'}}>
       {Object.entries(allWages).map(([name, wagePerHour]) => {
         const elapsed = startTime ? time - startTime : 0;
         
         return (
-          <div key={name}>
-            <Clock value={new Date(elapsed)} />
+          <div key={name} onClick={() => {
+            setStartTime(time)
+            setMultiplier(wagePerHour)
+          }}
+          style={{
+            padding: 10,
+            margin: 20,
+            textAlign: 'center',
+            background: multiplier == wagePerHour ? '#0002' : 'transparent',
+            borderRadius: 10,
+            flexBasis: 0,
+          }}>
+            <Clock value={new Date(elapsed * multiplier / wagePerHour * 1000)} />
+            <span style={{paddingTop: 3, display: "inline-block"}}>{name}</span>
           </div>
         );
       })}
-
-      <button onClick={() => setStartTime(time)}>Start</button>
     </ExperimentWrapper>
   );  
 }
