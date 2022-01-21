@@ -36,7 +36,7 @@ export function NumberInput({value, onChange, ...props}: HTMLProps<HTMLInputElem
     if (timeout.current) clearTimeout(timeout.current);
     timeout.current = setTimeout(() => {
       setText(null)
-    }, 500)
+    }, 5000)
   }, [value])
   
   return <input
@@ -63,7 +63,7 @@ export function WageEntry({ wage, setWage }: { wage: number, setWage: (wage: num
   };
   const labelStyle = {
     padding: "2px 8px",
-    margin: 5,
+    margin: 3,
     borderRadius: 5
   };
 
@@ -75,18 +75,18 @@ export function WageEntry({ wage, setWage }: { wage: number, setWage: (wage: num
           id="wage" 
           value={(wage * timeBase * perDay)} 
           onChange={(x) => setWage(x / (timeBase * perDay))} 
-        /> €
+        /> € {' '}
 
         <input {...radioProps} id="hour" name="timeBase" onClick={() => setTimeBase(1 / perDay)}
                checked={timeBase == (1 / perDay)} />
-        <label htmlFor="hour" style={{ ...labelStyle, marginLeft: 30 }}>Pro Stunde</label>
+        <label htmlFor="hour" style={{ ...labelStyle }}>Pro Stunde</label>
 
         <input {...radioProps} id="month" name="timeBase" onClick={() => setTimeBase(21)} checked={timeBase == 21} />
-        <label htmlFor="month" style={labelStyle}>Pro Monat</label>
+        <label htmlFor="month" style={labelStyle}>Pro Monat</label>
 
         <input {...radioProps} id="year" name="timeBase" onClick={() => setTimeBase(21 * 12)}
                checked={timeBase == 21 * 12} />
-        <label htmlFor="year" style={labelStyle}>Pro Jahr</label><br /><br />
+        <label htmlFor="year" style={labelStyle}>Pro Jahr</label><br /><br />
 
       {timeBase != (1 / perDay) && <>
         <>
@@ -134,7 +134,7 @@ export function EarnProgress({ wage, target = 1 }: {
         let money = Math.min(wagePerSecond * elapsed, target);
         let elapsedPerson = money == target ? target / wagePerSecond : elapsed;
         return (
-          <div key={name}>
+          <div key={name} style={{width: '100%'}}>
             {name} ({formatNumber(money, 2)} € in {formatNumber(elapsedPerson)}s)
             <Line percent={(money / target) * 100} />
           </div>
@@ -151,7 +151,7 @@ export function SpeedyClocks({ wage }: { wage: number }) {
   const time = useTime();
 
   return (
-    <ExperimentWrapper style={{ display: "flex", flexWrap: "wrap" }}>
+    <ExperimentWrapper style={{ display: "flex", flexWrap: "wrap", justifyContent: 'space-around' }}>
       {Object.entries(allWages).map(([name, wagePerHour]) => {
         const elapsed = startTime ? time - startTime : 0;
 
@@ -221,11 +221,12 @@ export function ManyHumans({ wage }: { wage: number }) {
                  textAlign: "center",
                  background: multiplier == wagePerHour ? "#0002" : "transparent",
                  borderRadius: 10,
-                 flexBasis: 300,
+                 flexBasis: "300px",
                  height: 100,
                  display: "flex",
                  justifyContent: "center",
-                 alignItems: "center"
+                 alignItems: "center",
+                 flexGrow: 1,
                }}>
             <span style={{ paddingTop: 3, display: "inline-block" }}>
               {formatNumber(x, 0)} {x == 1 ? name : plurals[name]} <br />
