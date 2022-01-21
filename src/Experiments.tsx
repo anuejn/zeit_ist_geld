@@ -180,11 +180,11 @@ export function SpeedyClocks({ wage }: { wage: number }) {
 
 export function Comparison({ value }: { value: number }): JSX.Element {
   const comparisons = {
-    0.000000125: (x: number) => <b>(Entspricht dem Gewicht von {formatNumber(x, 1)} Haaren)</b>, // http://www.personenwaage-online.de/wie-viel-wiegt/wie-viel-wiegen-haare-und-wie-viel-nasse/
-    0.0006: (x: number) => <>(Entspricht dem Gewicht von {formatNumber(x, 1)} Fingern)</>, // http://www.arsmartialis.com/index.html?name=http://www.arsmartialis.com/faq/m_anteil.html
-    0.0084: (x: number) => <>(Entspricht dem Gewicht von {formatNumber(x, 1)} Händen)</>, // http://www.arsmartialis.com/index.html?name=http://www.arsmartialis.com/faq/m_anteil.html
-    0.0197: (x: number) => <>(Entspricht dem Gewicht von {formatNumber(x, 1)} Füßen)</>, // http://www.arsmartialis.com/index.html?name=http://www.arsmartialis.com/faq/m_anteil.html
-    0.187: (x: number) => <>(Entspricht dem Gewicht von {formatNumber(x, 1)} Beinen)</>, // https://de.wikipedia.org/wiki/Untere_Extremit%C3%A4t
+    0.000000125: (x: number) => <b>(Entspricht dem Gewichtsanteil von {formatNumber(x, 1)} Haaren)</b>, // http://www.personenwaage-online.de/wie-viel-wiegt/wie-viel-wiegen-haare-und-wie-viel-nasse/
+    0.0006: (x: number) => <>(Entspricht dem Gewichtsanteil von {formatNumber(x, 1)} Fingern)</>, // http://www.arsmartialis.com/index.html?name=http://www.arsmartialis.com/faq/m_anteil.html
+    0.0084: (x: number) => <>(Entspricht dem Gewichtsanteil von {formatNumber(x, 1)} Händen)</>, // http://www.arsmartialis.com/index.html?name=http://www.arsmartialis.com/faq/m_anteil.html
+    0.0197: (x: number) => <>(Entspricht dem Gewichtsanteil von {formatNumber(x, 1)} Füßen)</>, // http://www.arsmartialis.com/index.html?name=http://www.arsmartialis.com/faq/m_anteil.html
+    0.187: (x: number) => <>(Entspricht dem Gewichtsanteil von {formatNumber(x, 1)} Beinen)</>, // https://de.wikipedia.org/wiki/Untere_Extremit%C3%A4t
     0.5: () => <></>,
     24: (x: number) => <>(ca. {formatNumber(x, 1)} Schulklassen)</>,
     10000: (x: number) => <>(ca. {formatNumber(x, 1)} Fußballstadien)</>,
