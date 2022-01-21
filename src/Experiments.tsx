@@ -63,15 +63,15 @@ export function WageEntry({ wage, setWage }: { wage: number, setWage: (wage: num
   };
   const labelStyle = {
     padding: "2px 8px",
-    margin: 3,
-    borderRadius: 5
+    borderRadius: 5,
+    lineHeight: 2,
   };
 
   return (
     <ExperimentWrapper>
       <p>
         <NumberInput 
-          style={{ width: 100 }} 
+          style={{ width: 80 }} 
           id="wage" 
           value={(wage * timeBase * perDay)} 
           onChange={(x) => setWage(x / (timeBase * perDay))} 
@@ -93,7 +93,7 @@ export function WageEntry({ wage, setWage }: { wage: number, setWage: (wage: num
           <NumberInput
             id="perWeek"
             value={(perDay * 5)}
-            style={{ width: 100 }}
+            style={{ width: 80 }}
             onChange={(x) => setPerDay(x as number / 5)}
           />
           <label htmlFor="perWeek"> Stunden Pro Woche</label>
