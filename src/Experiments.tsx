@@ -37,7 +37,7 @@ export function NumberInput({value, onChange, ...props}: HTMLProps<HTMLInputElem
     timeout.current = setTimeout(() => {
       setText(null)
     }, 5000)
-  }, [value])
+  }, [value, text])
   
   return <input
     {...props}
@@ -48,7 +48,15 @@ export function NumberInput({value, onChange, ...props}: HTMLProps<HTMLInputElem
       console.log(e.target.value)
       if (parsed) onChange(parsed)
       setText(e.target.value)
-    }} 
+    }}
+    onBlur={(e) => {
+      setText(null);
+    }}
+    onKeyDown={(e) => {
+      if (e.key == "Enter") {
+        setText(null);
+      }
+    }}
   />
 
 }
