@@ -6,7 +6,7 @@ import "react-clock/dist/Clock.css";
 
 export const wages: Record<string, number> = {
   "Näher:in in Bangladesch": 0.29,
-  "Mensch mit Mindestlohn in Deutschland": 9.82,
+  "Mensch mit Mindestlohn in Deutschland": 9.8200001,
   "durchschnittliche Arbeitnehmer:in in Deutschland": 18.15,
   "Professor:in in Deutschland": 38.69,
   "Elon Musk": 1600000
